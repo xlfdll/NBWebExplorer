@@ -10,7 +10,7 @@ namespace NBWebExplorer
 {
     public partial class AboutBox : Form
     {
-        public AboutBox()
+        private AboutBox()
         {
             InitializeComponent();
         }

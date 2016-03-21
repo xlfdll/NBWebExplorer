@@ -402,7 +402,7 @@ namespace NBWebExplorer
                 {
                     using (AboutBox box = new AboutBox(webBrowserTabPage))
                     {
-                        box.ShowDialog();
+                        box.ShowDialog(this);
                     }
                 }
             }
