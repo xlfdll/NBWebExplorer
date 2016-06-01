@@ -11,13 +11,13 @@ namespace NBWebExplorer
         public WebBrowserTabPage()
             : base()
         {
-            initializeControls();
+            Initialize();
         }
 
         public WebBrowserTabPage(String text)
             : base(text)
         {
-            initializeControls();
+            Initialize();
         }
 
         #endregion
@@ -25,7 +25,7 @@ namespace NBWebExplorer
         #region Fields
 
         private WebBrowser _browser = new WebBrowser();
-        private List<KeyValuePair<String, String>> _historyList = new List<KeyValuePair<String, String>>();
+        private Dictionary<String, String> _historyList = new Dictionary<String, String>();
         private Boolean _addToHistoryList = true;
 
         #endregion
@@ -37,7 +37,7 @@ namespace NBWebExplorer
             get { return _browser; }
         }
 
-        public List<KeyValuePair<String, String>> HistoryList
+        public Dictionary<String, String> HistoryList
         {
             get { return _historyList; }
         }
@@ -61,7 +61,7 @@ namespace NBWebExplorer
 
         #region Methods
 
-        private void initializeControls()
+        private void Initialize()
         {
             _browser.Dock = DockStyle.Fill;
             _browser.ScriptErrorsSuppressed = true;
@@ -88,25 +88,13 @@ namespace NBWebExplorer
 
             if (_addToHistoryList && !Helper.RegexCollection.TitleRegex.IsMatch(this.Title) && !Helper.RegexCollection.UrlRegex.IsMatch(_browser.Url.OriginalString))
             {
-                KeyValuePair<String, String> oldPair = new KeyValuePair<String, String>();
-                KeyValuePair<String, String> newPair = new KeyValuePair<String, String>(this.Title, _browser.Url.OriginalString);
-
-                foreach (KeyValuePair<String, String> pair in _historyList)
+                if (_historyList.ContainsKey(_browser.Url.OriginalString))
                 {
-                    if (pair.Value == _browser.Url.OriginalString)
-                    {
-                        oldPair = pair;
-
-                        break;
-                    }
+                    _historyList.Remove(_browser.Url.OriginalString);
                 }
 
-                if (!String.IsNullOrEmpty(oldPair.Value))
-                {
-                    _historyList.Remove(oldPair);
-                }
-
-                _historyList.Add(newPair);
+                // Key: URL, Value: Title
+                _historyList.Add(_browser.Url.OriginalString, this.Title);
             }
         }
 

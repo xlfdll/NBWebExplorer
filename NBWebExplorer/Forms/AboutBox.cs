@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace NBWebExplorer
@@ -29,6 +24,13 @@ namespace NBWebExplorer
             nbPictureBox.Image = nbImageList.Images[nbImageIndex];
         }
 
+        private void nbTimer_Tick(object sender, EventArgs e)
+        {
+            nbImageIndex = (nbImageIndex != nbImageCount) ? nbImageIndex + 1 : 0;
+
+            nbPictureBox.Image = nbImageList.Images[nbImageIndex];
+        }
+
         private void nbPictureBox_MouseClick(object sender, MouseEventArgs e)
         {
             nbTimer.Enabled = !nbTimer.Enabled;
@@ -44,13 +46,6 @@ namespace NBWebExplorer
         private void okButton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void nbTimer_Tick(object sender, EventArgs e)
-        {
-            nbImageIndex = (nbImageIndex != nbImageCount) ? nbImageIndex + 1 : 0;
-
-            nbPictureBox.Image = nbImageList.Images[nbImageIndex];
         }
 
         private WebBrowserTabPage _webBrowserTabPage;

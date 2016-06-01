@@ -27,7 +27,7 @@ namespace NBWebExplorer
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Width * 0.65), Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Height * 0.65));
+            this.Size = new Size(Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Width * 0.80), Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Height * 0.80));
 
             openNewWebBrowserTabPage(0, null);
 
@@ -111,13 +111,7 @@ namespace NBWebExplorer
 
                 if (webBrowserTabPage != null)
                 {
-                    Int32 width = mainTabControl.Size.Width;
-                    String title = webBrowserTabPage.Title;
-                    Int32 titleLength = (width / 100 - mainTabControl.TabCount) * ((width / 100));
-
-                    titleLength = titleLength <= 0 ? 5 : titleLength;
-
-                    page.Text = title.Length > titleLength ? title.Substring(0, titleLength) + "..." : title;
+                    resizeWebBrowserTabPage(webBrowserTabPage);
                 }
             }
         }
@@ -185,7 +179,7 @@ namespace NBWebExplorer
 
                 foreach (KeyValuePair<String, String> pair in webBrowserTabPage.HistoryList)
                 {
-                    historyListToolStripDropDownButton.DropDownItems.Insert(0, createURLToolStripMenuItem(pair.Key, pair.Value, Resources.Link));
+                    historyListToolStripDropDownButton.DropDownItems.Insert(0, createURLToolStripMenuItem(pair.Value, pair.Key, Resources.Link));
 
                     ToolStripMenuItem menuItem = historyListToolStripDropDownButton.DropDownItems[0] as ToolStripMenuItem;
 
@@ -212,7 +206,8 @@ namespace NBWebExplorer
                         item.Checked = (item == historyToolStripMenuItem);
                     }
 
-                    webBrowserTabPage.Navigate(historyToolStripMenuItem.Tag.ToString(), false);
+                    urlToolStripComboBox.Text = historyToolStripMenuItem.Tag.ToString();
+                    webBrowserTabPage.Navigate(urlToolStripComboBox.Text, false);
                 }
             }
         }
@@ -466,7 +461,7 @@ namespace NBWebExplorer
             }
             else
             {
-                openNewWebBrowserTabPage(mainTabControl.TabCount - 1, String.Empty);
+                openNewWebBrowserTabPage(mainTabControl.TabCount - 1, null);
             }
         }
 
@@ -561,7 +556,7 @@ namespace NBWebExplorer
                 }
                 else if (e.ClickedItem == newTabToolStripMenuItem)
                 {
-                    openNewWebBrowserTabPage(mainTabControl.TabPages.IndexOf(webBrowserTabPage) + 1, String.Empty);
+                    openNewWebBrowserTabPage(mainTabControl.TabPages.IndexOf(webBrowserTabPage) + 1, null);
 
                     urlToolStripComboBox.Focus();
                 }
@@ -576,6 +571,16 @@ namespace NBWebExplorer
 
         #region webBrowser
 
+        private void webBrowser_IsBusyDetection(object sender, EventArgs e)
+        {
+            WebBrowserTabPage webBrowserTabPage = mainTabControl.SelectedTab as WebBrowserTabPage;
+
+            if (webBrowserTabPage != null)
+            {
+                pageSwitchToolStripSpiltButton.Image = !webBrowserTabPage.IsBusy ? Resources.Forward : Resources.Stop;
+            }
+        }
+
         private void webBrowser_NewWindow(object sender, CancelEventArgs e)
         {
             WebBrowserTabPage webBrowserTabPage = mainTabControl.SelectedTab as WebBrowserTabPage;
@@ -584,7 +589,7 @@ namespace NBWebExplorer
             {
                 String url = !String.IsNullOrEmpty(webBrowserTabPage.Browser.Document.ActiveElement.GetAttribute("href")) ? webBrowserTabPage.Browser.Document.ActiveElement.GetAttribute("href") : webBrowserTabPage.Browser.Document.ActiveElement.GetElementsByTagName("a")[0].GetAttribute("href");
 
-                openNewWebBrowserTabPage(mainTabControl.TabPages.IndexOf(webBrowserTabPage) + 1, url);
+                openNewWebBrowserTabPage(mainTabControl.SelectedIndex + 1, url);
             }
 
             e.Cancel = true;
@@ -596,8 +601,6 @@ namespace NBWebExplorer
 
             if (webBrowserTabPage != null)
             {
-                // If not busy, urlToolStripComboBox.Text needn't be updated.
-
                 if (!urlToolStripComboBox.Focused)
                 {
                     urlToolStripComboBox.Text = webBrowserTabPage.Browser.Url.OriginalString;
@@ -641,17 +644,7 @@ namespace NBWebExplorer
             {
                 this.Text = String.Format("{0} - {1}", webBrowserTabPage.Title, this.ProductName);
 
-                MainForm_SizeChanged(sender, e);
-            }
-        }
-
-        private void webBrowser_IsBusyDetection(object sender, EventArgs e)
-        {
-            WebBrowserTabPage webBrowserTabPage = mainTabControl.SelectedTab as WebBrowserTabPage;
-
-            if (webBrowserTabPage != null)
-            {
-                pageSwitchToolStripSpiltButton.Image = !webBrowserTabPage.IsBusy ? Resources.Forward : Resources.Stop;
+                resizeWebBrowserTabPage(webBrowserTabPage);
             }
         }
 
@@ -666,35 +659,45 @@ namespace NBWebExplorer
             WebBrowserTabPage webBrowserTabPage = new WebBrowserTabPage("Loading...");
 
             webBrowserTabPage.Browser.Navigating += webBrowser_IsBusyDetection;
-            webBrowserTabPage.Browser.Navigated += webBrowser_Navigated;
+            webBrowserTabPage.Browser.DocumentCompleted += webBrowser_IsBusyDetection;
+
             webBrowserTabPage.Browser.NewWindow += webBrowser_NewWindow;
+            webBrowserTabPage.Browser.Navigated += webBrowser_Navigated;
             webBrowserTabPage.Browser.ProgressChanged += webBrowser_ProgressChanged;
             webBrowserTabPage.Browser.StatusTextChanged += webBrowser_StatusTextChanged;
             webBrowserTabPage.Browser.DocumentTitleChanged += webBrowser_DocumentTitleChanged;
-            webBrowserTabPage.Browser.DocumentCompleted += webBrowser_IsBusyDetection;
 
             mainTabControl.TabPages.Insert(index, webBrowserTabPage);
             mainTabControl.SelectedTab = webBrowserTabPage;
 
-            if (url == String.Empty)
-            {
-                urlToolStripComboBox.Text = webBrowserTabPage.IEVersion.Major > 6 ? "about:Tabs" : "about:blank";
+            urlToolStripComboBox.Text = url;
 
+            if (!String.IsNullOrEmpty(url))
+            {
                 webBrowserTabPage.Navigate(urlToolStripComboBox.Text, false);
             }
-            else if (url != null)
+            else
             {
-                urlToolStripComboBox.Text = url;
-
-                openToolStripMenuItem.PerformClick();
+                urlToolStripComboBox.Focus();
             }
+
+            MainForm_SizeChanged(null, EventArgs.Empty);
         }
 
         private void closeWebBrowserTabPage(TabPage tabPage)
         {
             if (mainTabControl.TabPages.Contains(tabPage))
             {
+                // If specified tab page is the current selected tab page, try to move to right tab once closed
+                // (But if the current selected tab page is the rightmost, move to left, and skip <New> tab)
+
+                Int32 nextIndex = (tabPage == mainTabControl.SelectedTab) ?
+                    ((mainTabControl.SelectedIndex < mainTabControl.TabCount - 2) ? mainTabControl.SelectedIndex : mainTabControl.SelectedIndex - 1)
+                     : mainTabControl.SelectedIndex;
+
                 mainTabControl.TabPages.Remove(tabPage);
+
+                mainTabControl.SelectedIndex = nextIndex;
 
                 MainForm_SizeChanged(null, EventArgs.Empty);
             }
@@ -723,6 +726,17 @@ namespace NBWebExplorer
                     mainToolStripProgressBar.Visible = webBrowserTabPage.IsBusy;
                 }
             }
+        }
+
+        private void resizeWebBrowserTabPage(WebBrowserTabPage webBrowserTabPage)
+        {
+            Int32 width = mainTabControl.Size.Width;
+            String title = webBrowserTabPage.Title;
+            Int32 titleLength = (width / 100 - mainTabControl.TabCount) * ((width / 100));
+
+            titleLength = titleLength <= 0 ? 5 : titleLength;
+
+            webBrowserTabPage.Text = title.Length > titleLength ? title.Substring(0, titleLength) + "..." : title;
         }
 
         private void addFavoritesToolStripItems(ToolStripItemCollection itemCollection, String favPath)
