@@ -86,7 +86,7 @@ namespace NBWebExplorer
 
             this.OnSizeChanged(e);
 
-            if (_addToHistoryList && !Helper.RegexCollection.TitleRegex.IsMatch(this.Title) && !Helper.RegexCollection.UrlRegex.IsMatch(_browser.Url.OriginalString))
+            if (_addToHistoryList && !DataHelper.RegexCollection.TitleRegex.IsMatch(this.Title) && !DataHelper.RegexCollection.UrlRegex.IsMatch(_browser.Url.OriginalString))
             {
                 if (_historyList.ContainsKey(_browser.Url.OriginalString))
                 {

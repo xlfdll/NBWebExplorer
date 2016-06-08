@@ -59,7 +59,7 @@ namespace NBWebExplorer
 
                 if (files != null && files.Length > 0)
                 {
-                    urlToolStripComboBox.Text = Helper.RegexCollection.UrlShortcutRegex.Match(File.ReadAllText(files[0])).Groups["URL"].Value;
+                    urlToolStripComboBox.Text = DataHelper.RegexCollection.UrlShortcutRegex.Match(File.ReadAllText(files[0])).Groups["URL"].Value;
                 }
                 else
                 {
@@ -242,7 +242,7 @@ namespace NBWebExplorer
             {
                 if (e.ClickedItem == addToFavoritesToolStripMenuItem)
                 {
-                    Helper.Win32Interop.InvokeCommandByMessage(2, Helper.Win32Interop.Messages.ID_IE_CONTEXTMENU_ADDFAV, webBrowserTabPage);
+                    WinAPIHelper.InvokeCommandByMessage(2, WinAPIHelper.Messages.ID_IE_CONTEXTMENU_ADDFAV, webBrowserTabPage);
                 }
                 else if (e.ClickedItem == organizeFavoritesToolStripMenuItem)
                 {
@@ -341,7 +341,7 @@ namespace NBWebExplorer
             {
                 if (e.ClickedItem == findToolStripMenuItem)
                 {
-                    Helper.Win32Interop.InvokeCommandByMessage(2, Helper.Win32Interop.Messages.ID_IE_EDIT_FIND, webBrowserTabPage);
+                    WinAPIHelper.InvokeCommandByMessage(2, WinAPIHelper.Messages.ID_IE_EDIT_FIND, webBrowserTabPage);
                 }
                 else if (e.ClickedItem == saveAsToolStripMenuItem)
                 {
@@ -349,9 +349,9 @@ namespace NBWebExplorer
                 }
                 else if (e.ClickedItem == desktopShortcutToolStripMenuItem)
                 {
-                    Helper.Win32Interop.InvokeCommandByMessage(1, Helper.Win32Interop.Messages.ID_IE_FILE_SENDDESKTOPSHORTCUT, webBrowserTabPage);
+                    WinAPIHelper.InvokeCommandByMessage(1, WinAPIHelper.Messages.ID_IE_FILE_SENDDESKTOPSHORTCUT, webBrowserTabPage);
 
-                    MessageBox.Show(String.Format("The shortcut of the following page has been created on desktop:{0}{0}{1}", Environment.NewLine, webBrowserTabPage.Title), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, String.Format("The shortcut of the following page has been created on desktop:{0}{0}{1}", Environment.NewLine, webBrowserTabPage.Title), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (e.ClickedItem == printToolStripMenuItem)
                 {
@@ -367,7 +367,7 @@ namespace NBWebExplorer
                 }
                 else if (e.ClickedItem == viewSourceToolStripMenuItem)
                 {
-                    Helper.Win32Interop.InvokeCommandByMessage(2, Helper.Win32Interop.Messages.ID_IE_CONTEXTMENU_VIEWSOURCE, webBrowserTabPage);
+                    WinAPIHelper.InvokeCommandByMessage(2, WinAPIHelper.Messages.ID_IE_CONTEXTMENU_VIEWSOURCE, webBrowserTabPage);
                 }
             }
         }
@@ -387,17 +387,17 @@ namespace NBWebExplorer
             {
                 if (e.ClickedItem == importExportToolStripMenuItem)
                 {
-                    Helper.Win32Interop.InvokeCommandByMessage(1, Helper.Win32Interop.Messages.ID_IE_FILE_IMPORTEXPORT, webBrowserTabPage);
+                    WinAPIHelper.InvokeCommandByMessage(1, WinAPIHelper.Messages.ID_IE_FILE_IMPORTEXPORT, webBrowserTabPage);
                 }
                 else if (e.ClickedItem == optionsToolStripMenuItem)
                 {
-                    Helper.Win32Interop.InvokeCommandByMessage(2, Helper.Win32Interop.Messages.ID_IE_VIEW_OPTIONS, webBrowserTabPage);
+                    WinAPIHelper.InvokeCommandByMessage(2, WinAPIHelper.Messages.ID_IE_VIEW_OPTIONS, webBrowserTabPage);
                 }
                 else if (e.ClickedItem == aboutToolStripMenuItem)
                 {
-                    using (AboutBox box = new AboutBox(webBrowserTabPage))
+                    using (AboutBox aboutBox = new AboutBox(webBrowserTabPage))
                     {
-                        box.ShowDialog(this);
+                        aboutBox.ShowDialog(this);
                     }
                 }
             }
@@ -763,7 +763,7 @@ namespace NBWebExplorer
             {
                 foreach (String linkPath in entries)
                 {
-                    String url = Helper.RegexCollection.UrlShortcutRegex.Match(File.ReadAllText(linkPath)).Groups["URL"].Value;
+                    String url = DataHelper.RegexCollection.UrlShortcutRegex.Match(File.ReadAllText(linkPath)).Groups["URL"].Value;
 
                     ToolStripMenuItem menuItem = createURLToolStripMenuItem(Path.GetFileNameWithoutExtension(linkPath), url, Resources.Link);
 
