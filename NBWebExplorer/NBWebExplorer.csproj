@@ -12,7 +12,7 @@
     <AssemblyName>NBWebExplorer</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ApplicationIcon>NB.ico</ApplicationIcon>
+    <ApplicationIcon>NBWebExplorer.ico</ApplicationIcon>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -178,7 +178,7 @@
     <None Include="Resources\Tools.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="NB.ico" />
+    <Content Include="NBWebExplorer.ico" />
     <None Include="Resources\Search_Small.png" />
     <None Include="Resources\About_Small.png" />
     <None Include="Resources\Forward_Small.png" />
