@@ -196,19 +196,19 @@
     <value>6, 55</value>
   </data>
   <data name="addToFavoritesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="addToFavoritesToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Add to Favorites...</value>
   </data>
   <data name="organizeFavoritesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="organizeFavoritesToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Organize Favorites...</value>
   </data>
   <data name="organizeFavoritesToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 6</value>
+    <value>176, 6</value>
   </data>
   <data name="favoritesToolStripSpiltButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -232,34 +232,34 @@
     <value>Enter "? &lt;keyword&gt;" to search</value>
   </data>
   <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>164, 22</value>
   </data>
   <data name="openToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Open</value>
   </data>
   <data name="openInNewTabToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>164, 22</value>
   </data>
   <data name="openInNewTabToolStripMenuItem.Text" xml:space="preserve">
     <value>Open in New &amp;Tab</value>
   </data>
   <data name="openTabPageToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 6</value>
+    <value>161, 6</value>
   </data>
   <data name="searchToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+E</value>
   </data>
   <data name="searchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>164, 22</value>
   </data>
   <data name="searchToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Search</value>
   </data>
   <data name="searchToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 6</value>
+    <value>161, 6</value>
   </data>
   <data name="stopToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>164, 22</value>
   </data>
   <data name="stopToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Stop</value>
@@ -283,64 +283,64 @@
     <value>Ctrl+F</value>
   </data>
   <data name="findToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="findToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Find...</value>
   </data>
   <data name="findInPageToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 6</value>
+    <value>159, 6</value>
   </data>
   <data name="saveAsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+S</value>
   </data>
   <data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Save As...</value>
   </data>
   <data name="desktopShortcutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 22</value>
+    <value>165, 22</value>
   </data>
   <data name="desktopShortcutToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Desktop Shortcut</value>
   </data>
   <data name="sendToToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="sendToToolStripMenuItem.Text" xml:space="preserve">
     <value>Send &amp;To</value>
   </data>
   <data name="processPageToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 6</value>
+    <value>159, 6</value>
   </data>
   <data name="printToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+P</value>
   </data>
   <data name="printToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="printToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Print...</value>
   </data>
   <data name="printPreviewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="printPreviewToolStripMenuItem.Text" xml:space="preserve">
     <value>Print P&amp;review...</value>
   </data>
   <data name="pageSetupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="pageSetupToolStripMenuItem.Text" xml:space="preserve">
     <value>Page Set&amp;up...</value>
   </data>
   <data name="printPageToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 6</value>
+    <value>159, 6</value>
   </data>
   <data name="viewSourceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="viewSourceToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;View Source</value>
@@ -358,25 +358,25 @@
     <value>Page Menu</value>
   </data>
   <data name="importExportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+    <value>163, 22</value>
   </data>
   <data name="importExportToolStripMenuItem.Text" xml:space="preserve">
     <value>Impor&amp;t / Export...</value>
   </data>
   <data name="importExportToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 6</value>
+    <value>160, 6</value>
   </data>
   <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+    <value>163, 22</value>
   </data>
   <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Options</value>
   </data>
   <data name="optionsToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 6</value>
+    <value>160, 6</value>
   </data>
   <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+    <value>163, 22</value>
   </data>
   <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;About</value>
@@ -457,55 +457,55 @@
     <value>145, 7</value>
   </metadata>
   <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
+    <value>192, 22</value>
   </data>
   <data name="closeToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Close</value>
   </data>
   <data name="closeTabsOnTheLeftToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
+    <value>192, 22</value>
   </data>
   <data name="closeTabsOnTheLeftToolStripMenuItem.Text" xml:space="preserve">
     <value>Close tabs on the &amp;left</value>
   </data>
   <data name="closeTabsOnTheRightToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
+    <value>192, 22</value>
   </data>
   <data name="closeTabsOnTheRightToolStripMenuItem.Text" xml:space="preserve">
     <value>Close tabs on the &amp;right</value>
   </data>
   <data name="closeOtherTabsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
+    <value>192, 22</value>
   </data>
   <data name="closeOtherTabsToolStripMenuItem.Text" xml:space="preserve">
     <value>Close other &amp;tabs</value>
   </data>
   <data name="closeTabsToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 6</value>
+    <value>189, 6</value>
   </data>
   <data name="refreshToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>F5</value>
   </data>
   <data name="refreshToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
+    <value>192, 22</value>
   </data>
   <data name="refreshToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Refresh</value>
   </data>
   <data name="refreshAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
+    <value>192, 22</value>
   </data>
   <data name="refreshAllToolStripMenuItem.Text" xml:space="preserve">
     <value>Refresh &amp;all</value>
   </data>
   <data name="refreshToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 6</value>
+    <value>189, 6</value>
   </data>
   <data name="newTabToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+T</value>
   </data>
   <data name="newTabToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
+    <value>192, 22</value>
   </data>
   <data name="newTabToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;New Tab</value>
@@ -514,13 +514,13 @@
     <value>Ctrl+K</value>
   </data>
   <data name="repeatTabToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
+    <value>192, 22</value>
   </data>
   <data name="repeatTabToolStripMenuItem.Text" xml:space="preserve">
     <value>R&amp;epeat Tab</value>
   </data>
   <data name="tabControlContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 192</value>
+    <value>193, 192</value>
   </data>
   <data name="&gt;&gt;tabControlContextMenuStrip.Name" xml:space="preserve">
     <value>tabControlContextMenuStrip</value>
@@ -1392,6 +1392,9 @@
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>800, 600</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>NB Web Explorer</value>
