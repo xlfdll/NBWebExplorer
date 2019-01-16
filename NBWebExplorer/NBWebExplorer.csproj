@@ -107,6 +107,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\BuildInfo.cs">
+      <Link>BuildInfo.cs</Link>
+    </Compile>
     <Compile Include="Helpers\DataHelper.cs" />
     <Compile Include="Forms\AboutBox.cs">
       <SubType>Form</SubType>
