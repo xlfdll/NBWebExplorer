@@ -22,3 +22,5 @@ Some features are supported only in certain architecture build. For example, 32-
 
 ## Development Prerequisites
 * Visual Studio 2013+
+
+Before the build, generate-build-number.sh needs to be executed in a Git / Bash shell to generate build information code file (BuildInfo.cs).
