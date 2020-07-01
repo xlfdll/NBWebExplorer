@@ -246,7 +246,7 @@ namespace NBWebExplorer
                 }
                 else if (e.ClickedItem == organizeFavoritesToolStripMenuItem)
                 {
-                    Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.Favorites));
+                    using (Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.Favorites))) { }
                 }
                 else if (e.ClickedItem.Tag != null)
                 {
