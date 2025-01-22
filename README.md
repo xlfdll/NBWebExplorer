@@ -11,7 +11,7 @@ Based on Internet Explorer's Trident engine. Designed for Windows versions that 
 ## System Requirements
 * .NET Framework 2.0
 
-[Runtime configuration](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-configure-an-app-to-support-net-framework-4-or-4-5) is needed for running in .NET Framework 4.0+.
+[Runtime configuration](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-configure-an-app-to-support-net-framework-4-or-4-5) is needed for running on .NET Framework 4.0+.
 
 To get maximum performance and standard compliance, upgrade Internet Explorer to the latest version.
 
@@ -23,4 +23,4 @@ Some features are supported only in certain architecture build. For example, 32-
 ## Development Prerequisites
 * Visual Studio 2013+
 
-Before the build, generate-build-number.sh needs to be executed in a Git / Bash shell to generate build information code file (BuildInfo.cs).
+Before the build, generate-build-number.sh needs to be executed in a Git / Bash shell to generate build information code file (`BuildInfo.cs`).
